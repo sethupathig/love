@@ -1,0 +1,123 @@
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang2057{\fonttbl{\f0\fnil Segoe UI;}}
+{\colortbl ;\red0\green0\blue0;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\tx720\cf1\f0\fs30\lang16393 <!DOCTYPE html>\par
+<html lang="en">\par
+<head>\par
+    <meta charset="UTF-8">\par
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\par
+    <title>For You</title>\par
+    <style>\par
+        :root \{\par
+            --bg-dark: #051a07;\par
+            --glow-green: #a5d6a7;\par
+        \}\par
+\par
+        * \{\par
+            margin: 0;\par
+            padding: 0;\par
+            box-sizing: border-box;\par
+        \}\par
+\par
+        body, html \{\par
+            height: 100%;\par
+            width: 100%;\par
+            overflow: hidden;\par
+            background-color: var(--bg-dark);\par
+            cursor: pointer;\par
+        \}\par
+\par
+        .container \{\par
+            width: 100vw;\par
+            height: 100vh;\par
+            background: radial-gradient(circle at center, #143317 0%, var(--bg-dark) 100%);\par
+            display: flex;\par
+            justify-content: center;\par
+            align-items: center;\par
+        \}\par
+\par
+        /* The Panda Styling */\par
+        .panda-wrapper \{\par
+            position: relative;\par
+            width: 200px;\par
+            animation: float 4s infinite ease-in-out;\par
+        \}\par
+\par
+        /* Glowing light behind panda */\par
+        .panda-wrapper::after \{\par
+            content: '';\par
+            position: absolute;\par
+            top: 50%;\par
+            left: 50%;\par
+            transform: translate(-50%, -50%);\par
+            width: 140px;\par
+            height: 140px;\par
+            background: rgba(165, 214, 167, 0.4);\par
+            filter: blur(50px);\par
+            z-index: 1;\par
+        \}\par
+\par
+        .panda-img \{\par
+            width: 100%;\par
+            position: relative;\par
+            z-index: 2;\par
+            display: block;\par
+        \}\par
+\par
+        /* Floating animation for a soft feel */\par
+        @keyframes float \{\par
+            0%, 100% \{ transform: translateY(0); \}\par
+            50% \{ transform: translateY(-15px); \}\par
+        \}\par
+\par
+        #player \{ position: absolute; width: 0; height: 0; visibility: hidden; \}\par
+    </style>\par
+</head>\par
+<body onclick="startExperience()">\par
+\par
+    <div id="player"></div>\par
+\par
+    <div class="container">\par
+        <div class="panda-wrapper">\par
+            <img src="panda.png" alt="Panda" class="panda-img">\par
+        </div>\par
+    </div>\par
+\par
+    <script>\par
+        var tag = document.createElement('script');\par
+        tag.src = "https://www.youtube.com/iframe_api";\par
+        var firstScriptTag = document.getElementsByTagName('script')[0];\par
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);\par
+\par
+        var player;\par
+        var hasStarted = false;\par
+\par
+        function onYouTubeIframeAPIReady() \{\par
+            player = new YT.Player('player', \{\par
+                height: '0', width: '0',\par
+                videoId: 'rtOvBOTyX00', \par
+                playerVars: \{ 'autoplay': 0, 'controls': 0, 'loop': 1 \},\par
+                events: \{ 'onReady': onPlayerReady \}\par
+            \});\par
+        \}\par
+\par
+        function onPlayerReady(event) \{\par
+            // Player is ready\par
+        \}\par
+\par
+        function startExperience() \{\par
+            if (!hasStarted) \{\par
+                hasStarted = true;\par
+                // Wait 2 seconds (2000 milliseconds) before playing\par
+                setTimeout(function() \{\par
+                    if (player && player.playVideo) \{\par
+                        player.playVideo();\par
+                    \}\par
+                \}, 2000);\par
+            \}\par
+        \}\par
+    </script>\par
+</body>\par
+</html>\par
+}
+ 
